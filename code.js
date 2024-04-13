@@ -1,47 +1,37 @@
-// IMPL:
-// 1. Factorial can be cached when saved. This will avoid alot of extra computation.
-// 2. E can also cache it's result.
+/**
+ * @param {number} n
+ * @returns {number}
+ */
+function e(n) {
+  if (n <= 0) {
+    return 1;
+  }
+
+  let eNum = 1;
+  let factorial = 1;
+
+  for (let i = 1; i <= n; i++) {
+    factorial *= i;
+    eNum += 1 / factorial;
+  }
+
+  return eNum;
+}
 
 /**
  * @param {number} n
  * @returns {number}
  */
-function e() {
-  const eCache = new Map();
-  const factorialCache = new Map();
-
-  eCache.set(0, 1); // set base e case.
-  factorialCache.set(0, 1); // base factorial case
-
-  /**
-   * @param {number} n
-   * @returns {number}
-   */
-  function eHelper(n) {
-    if (eCache.has(n)) {
-      return eCache.get(n);
-    }
-
-    const result = 1.0 / factorialHelper(n) + eHelper(n - 1);
-    eCache.set(n, result);
-
-    return result;
+function factorial(n) {
+  if (n <= 0) {
+    return 1;
   }
 
-  /**
-   * @param {number} n
-   * @returns {number}
-   */
-  function factorialHelper(n) {
-    if (factorialCache.has(n)) {
-      return factorialCache.get(n);
-    }
+  let fact = 1;
 
-    const result = n * factorialHelper(n - 1);
-    factorialCache.set(n, result);
-
-    return result;
+  for (let i = 1; i < n; i++) {
+    fact *= i;
   }
 
-  return eHelper(n);
+  return fact;
 }
