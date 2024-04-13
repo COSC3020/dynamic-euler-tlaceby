@@ -9,6 +9,7 @@ function e(n) {
   for (let i = 1; i <= n; i++) {
     factorial *= i;
     eNum += 1 / factorial;
+    // I dont use factorial(i) here as this is slower then doing it inline like we do here.
   }
 
   return eNum;
@@ -27,3 +28,15 @@ function factorial(n) {
 
   return fact;
 }
+
+function oldFactorial(n) {
+  if (n === 0) return 1;
+  else return n * oldFactorial(n - 1);
+}
+
+function oldE(n) {
+  if (n === 0) return 1;
+  else return 1.0 / oldFactorial(n) + oldE(n - 1);
+}
+
+module.exports = { e, factorial, oldE, oldFactorial };

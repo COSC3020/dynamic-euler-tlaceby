@@ -18,4 +18,6 @@ but you need to go beyond that.
 
 ## Runtime Analysis
 
-What is the worst-case big $\Theta$ time complexity of your algorithm?
+The **worst-case** $\Theta()$ for **both** the `e()` and `factorial()` implimentations is $\Theta(n)$. For the **euler** function, we have to iterate a total of $n$ times to compute the factorial and sum. The `factorial()` method is also $\Theta(n)$ as we need to iterate from $1 \to n$.
+
+**Note**: I decided not to call `factorial()` inside the `e()` function. This was done as it requires only $n$ iterations but if I called the factorial, foreach iteration it would be another n iterations. So the worst-case complexity would be $\Theta(n^2)$.
